@@ -1,3 +1,8 @@
+# MCT India Summit Hackathons
+
+- [MCT-India-Summit-Hackathons](https://github.com/iamneerajsingh/MCT-India-Summit-Hackathons/tree/main)
+- [MCT India Summit](https://github.com/mctsummit/mctsummitindia2026/blob/main/README.md)
+
 # QuadGrid Showdown
 
 A 4x4 strategic grid game built with Python, featuring desktop (Tkinter) and web (Flask) interfaces.
