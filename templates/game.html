@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>QuadGrid Showdown</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>QuadGrid Showdown</h1>
+        <p class="status">Current Player: {{ current_player }}</p>
+        <p class="status">Win Probabilities: X: {{ probabilities.X }}% | O: {{ probabilities.O }}%</p>
+        {% if winner %}
+        <p class="status" style="color: #0b8c29;">Winner: {{ winner }}</p>
+        {% elif draw %}
+        <p class="status" style="color: #0b5bdc;">It's a draw!</p>
+        {% endif %}
+
+        <div class="actions">
+            <form method="POST" action="/reset">
+                <button type="submit">Reset Game</button>
+            </form>
+            <form method="POST" action="/logout">
+                <button type="submit">Logout</button>
+            </form>
+        </div>
+
+        <table>
+
+        {% for row in range(4) %}
+        <tr>
+            {% for col in range(4) %}
+            <td>
+                {% if board[row][col] %}
+                {{ board[row][col] }}
+                {% else %}
+                <form method="POST" action="/move" style="display: inline;">
+                    <input type="hidden" name="row" value="{{ row }}">
+                    <input type="hidden" name="col" value="{{ col }}">
+                    <button type="submit">-</button>
+                </form>
+                {% endif %}
+            </td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
